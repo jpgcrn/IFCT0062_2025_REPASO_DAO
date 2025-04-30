@@ -1,7 +1,9 @@
-package com.crngetafe.repasodao.persistence;
+package com.crngetafe.repasodao.persistence.file;
 
 import com.crngetafe.repasodao.exceptions.PersistenceException;
 import com.crngetafe.repasodao.model.Movie;
+import com.crngetafe.repasodao.persistence.IMovieDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 

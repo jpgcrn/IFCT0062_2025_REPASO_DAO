@@ -18,8 +18,8 @@ public class Main {
             System.out.println("Error al elegir gestor de BBDD!");
             exit(-1);
         }
-        Movie elconclave = new Movie(0, "El cónclave", "Desconocido");
-        Movie indianajones = new Movie(0, "Indiana Jones", "Steven Spielberg");
+        Movie elconclave = new Movie("El cónclave", "Desconocido");
+        Movie indianajones = new Movie("Indiana Jones", "Steven Spielberg");
         try {
             int id = movieDAO.create(elconclave);
             if (id > 0) {

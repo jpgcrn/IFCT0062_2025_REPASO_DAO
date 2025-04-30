@@ -1,4 +1,4 @@
-package com.crngetafe.repasodao.persistence;
+package com.crngetafe.repasodao.persistence.sql;
 
 public class MovieDAOImplPostgre extends MovieDAOImplSQL {
     public MovieDAOImplPostgre() {

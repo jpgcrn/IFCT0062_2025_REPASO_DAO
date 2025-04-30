@@ -1,9 +1,28 @@
 package com.crngetafe.repasodao.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="movie")
 public class Movie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name="title")
     private String title;
+
+    @Column(name="director")
     private String director;
+
+    public Movie() {
+
+    }
+
+    public Movie(String title, String director) {
+        this.title = title;
+        this.director = director;
+    }
 
     public Movie(int id, String title, String director) {
         this.id = id;
