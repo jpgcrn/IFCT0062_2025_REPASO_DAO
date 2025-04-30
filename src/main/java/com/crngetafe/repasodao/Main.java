@@ -4,13 +4,20 @@ import com.crngetafe.repasodao.exceptions.PersistenceException;
 import com.crngetafe.repasodao.model.Movie;
 import com.crngetafe.repasodao.persistence.IMovieDAO;
 import com.crngetafe.repasodao.persistence.MovieDAOFactory;
+import com.crngetafe.repasodao.util.PropertiesReader;
 
 import java.sql.SQLException;
 import java.util.List;
 
+import static java.lang.System.exit;
+
 public class Main {
     public static void main(String[] args) {
         IMovieDAO movieDAO = MovieDAOFactory.getMovieDAO();
+        if (movieDAO == null) {
+            System.out.println("Error al elegir gestor de BBDD!");
+            exit(-1);
+        }
         Movie elconclave = new Movie(0, "El cónclave", "Desconocido");
         Movie indianajones = new Movie(0, "Indiana Jones", "Steven Spielberg");
         try {
