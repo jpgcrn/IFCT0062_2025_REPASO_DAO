@@ -21,19 +21,27 @@ public class Main {
         Movie elconclave = new Movie("El cónclave", "Desconocido");
         Movie indianajones = new Movie("Indiana Jones", "Steven Spielberg");
         try {
+            Movie peliculaLeida;
             int id = movieDAO.create(elconclave);
             if (id > 0) {
                 System.out.println("Película creada con id " + id);
+                peliculaLeida = movieDAO.read(id);
+                System.out.println(peliculaLeida);
+
+                System.out.println("Actualizar película 'El cónclave'");
+                Movie elConclaveUpdated = new Movie(id,"El Cónclave", "Edward Berger");
+                movieDAO.update(elConclaveUpdated);
             }
-            Movie peliculaLeida = movieDAO.read(id);
-            System.out.println(peliculaLeida);
 
             id = movieDAO.create(indianajones);
             if (id > 0) {
                 System.out.println("Película creada con id " + id);
+                peliculaLeida = movieDAO.read(id);
+                System.out.println(peliculaLeida);
+
+                System.out.println("Borramos película recién creada.");
+                movieDAO.delete(id);
             }
-            peliculaLeida = movieDAO.read(id);
-            System.out.println(peliculaLeida);
 
             List<Movie> allMovies = movieDAO.readAll();
             //for (int i = 0; i < allMovies.toArray().length; i++) {
@@ -44,6 +52,7 @@ public class Main {
             });
             //Otra forma:
             //allMovies.forEach(System.out::println);
+
         }
         catch (PersistenceException pex) {
             System.err.println(pex.getMessage());
